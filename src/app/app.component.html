@@ -3,7 +3,7 @@
 </h1>
 
 
-  <div *ngFor='let recipe of recipes'>
+  <!-- <div *ngFor='let recipe of recipes'>
     <h2>{{recipe.name}}</h2>
     <h3>Ingredients: </h3>
     <p *ngFor='let ingredient of recipe.ingredients'>{{ingredient}}</p>
@@ -12,9 +12,14 @@
       <li *ngFor='let instruction of recipe.instructions'>{{instruction}}</li>
     </ol>
     <hr>
-  </div>
+  </div> -->
 
 
-<ul>
-  <li *ngFor='let recipe of recipes'><a href="">{{recipe.name}}</a></li>
-</ul>
+  <h2>My Recipes</h2>
+  <ul class="recipes">
+    <li *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)">
+      <span class="badge">{{recipe.name}}</span>
+    </li>
+  </ul>
+
+  <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>

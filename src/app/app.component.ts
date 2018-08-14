@@ -14,4 +14,17 @@ export class AppComponent {
     new Recipe('Steamed Brocolli', ['Steam', 'brocolli'], ['Steam the brocolli.']),
     new Recipe('Cereal', ['Milk', 'cereal', 'eraser shavings'], ['Put all ingredients into bowl and enjoy.'])
   ];
+
+
+  selectedRecipe: Recipe;
+
+  onSelect(recipe: Recipe): void {
+    this.selectedRecipe = recipe;
+  }
+  
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }
