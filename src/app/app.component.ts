@@ -19,9 +19,13 @@ export class AppComponent {
   selectedRecipe: Recipe;
 
   onSelect(recipe: Recipe): void {
-    this.selectedRecipe = recipe;
+    if (this.selectedRecipe === recipe) {
+      this.selectedRecipe = null;
+    } else {
+      this.selectedRecipe = recipe;
+    }
   }
-  
+
   constructor() { }
 
   ngOnInit() {

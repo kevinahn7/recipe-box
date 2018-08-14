@@ -2,23 +2,10 @@
   Welcome to {{title}}
 </h1>
 
-
-  <!-- <div *ngFor='let recipe of recipes'>
-    <h2>{{recipe.name}}</h2>
-    <h3>Ingredients: </h3>
-    <p *ngFor='let ingredient of recipe.ingredients'>{{ingredient}}</p>
-    <h3>Instructions:</h3>
-    <ol>
-      <li *ngFor='let instruction of recipe.instructions'>{{instruction}}</li>
-    </ol>
-    <hr>
-  </div> -->
-
-
   <h2>My Recipes</h2>
   <ul class="recipes">
-    <li *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)">
-      <span class="badge">{{recipe.name}}</span>
+    <li *ngFor="let recipe of recipes">
+      <span class="badge" (click)="onSelect(recipe)">{{recipe.name}}</span>
     </li>
   </ul>
 
