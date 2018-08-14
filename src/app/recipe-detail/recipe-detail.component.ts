@@ -17,6 +17,11 @@ export class RecipeDetailComponent implements OnInit {
     recipe.ingredients.push(ingredient);
   }
 
+  editIngredient(ingredient: string, newIngredient: string, recipe: Recipe) {
+    let index = recipe.ingredients.indexOf(ingredient);
+    recipe.ingredients.splice(index, 1, newIngredient);
+  }
+
   removeIngredient(ingredient: string, recipe: Recipe) {
     let index = recipe.ingredients.indexOf(ingredient);
     recipe.ingredients.splice(index, 1);
