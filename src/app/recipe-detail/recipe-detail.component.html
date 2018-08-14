@@ -6,10 +6,17 @@
       <input [(ngModel)]="recipe.name" placeholder="name">
     </label>
     <h3>Ingredients: </h3>
-    <p *ngFor='let ingredient of recipe.ingredients'>{{ingredient}}</p>
+    <p *ngFor='let ingredient of recipe.ingredients'>{{ingredient}}<button (click)="removeIngredient(ingredient, recipe)">Remove</button></p>
+
+    <input type="text" [(ngModel)]="newIngredient">
+    <button (click)="addIngredient(newIngredient, recipe)">Add</button>
+
     <h3>Instructions:</h3>
     <ol>
-      <li *ngFor='let instruction of recipe.instructions'>{{instruction}}</li>
+      <li *ngFor='let instruction of recipe.instructions'>{{instruction}} <button (click)="removeInstruction(instruction, recipe)">Remove</button></li>
     </ol>
+
+    <input type="text" [(ngModel)]="newInstruction">
+    <button (click)="addInstruction(newInstruction, recipe)">Add</button>
   </div>
 </div>

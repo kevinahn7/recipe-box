@@ -13,4 +13,22 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  addIngredient(ingredient: string, recipe: Recipe) {
+    recipe.ingredients.push(ingredient);
+  }
+
+  removeIngredient(ingredient: string, recipe: Recipe) {
+    let index = recipe.ingredients.indexOf(ingredient);
+    recipe.ingredients.splice(index, 1);
+  }
+
+  addInstruction(instruction: string, recipe: Recipe) {
+    recipe.instructions.push(instruction);
+  }
+
+  removeInstruction(instruction: string, recipe: Recipe) {
+    let index = recipe.instructions.indexOf(instruction);
+    recipe.instructions.splice(index, 1);
+  }
+
 }
