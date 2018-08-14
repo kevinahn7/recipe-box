@@ -5,22 +5,29 @@
       <input [(ngModel)]="recipe.name" placeholder="name">
     </label>
     <h3>Ingredients: </h3>
-    <p *ngFor='let ingredient of recipe.ingredients'>{{ingredient}}
-      <br>
-      <input type="text" [(ngModel)]="changeIngredient">
-      <button (click)="editIngredient(ingredient, changeIngredient, recipe)">Edit</button> 
-      <br>
-      <button (click)="removeIngredient(ingredient, recipe)">Remove</button>
-    </p>
+    <div *ngFor="let ingredient of recipe.ingredients; let index = index">
+      <p>{{ingredient}}</p>
 
+      <button (click)='editIngredient(index, changeIngredient, recipe)'>Edit</button>
+      <button (click)="removeIngredient(ingredient, recipe)">Remove</button>
+    </div>
+    <label>Change Ingredient Name:</label>
+    <input type="text" [(ngModel)]="changeIngredient">
+
+    <br />
     <label>Add Ingredient to this Recipe:</label>
     <input type="text" [(ngModel)]="newIngredient">
     <button (click)="addIngredient(newIngredient, recipe)">Add</button>
 
     <h3>Instructions:</h3>
     <ol>
-      <li *ngFor='let instruction of recipe.instructions'>{{instruction}} <button (click)="removeInstruction(instruction, recipe)">Remove</button></li>
+      <li *ngFor='let instruction of recipe.instructions; let index = index'>{{instruction}} <button (click)='editInstructions(index, changeInstruction, recipe)'>Edit</button><button (click)="removeInstruction(instruction, recipe)">Remove</button></li>
     </ol>
+
+    <label>Change Instruction Name:</label>
+    <input type="text" [(ngModel)]="changeInstruction">
+
+    <br />
     <label>Add Instruction to this Recipe:</label>
     <input type="text" [(ngModel)]="newInstruction">
     <button (click)="addInstruction(newInstruction, recipe)">Add</button>
